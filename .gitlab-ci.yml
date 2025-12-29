@@ -1,0 +1,9 @@
+stages:
+  - deploy
+
+deploy:
+  stage: deploy
+  only: [main]
+  tags: [itp-server]
+  script:
+    - bash deploy.sh

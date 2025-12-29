@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  en_bot_telegram:
+    container_name: en_bot_telegram
+    build:
+      dockerfile: Dockerfile
+      context: .
+    ports:
+     - "4002:3131"
+    networks:
+     - english_bot
+    restart: unless-stopped
+ 
+
+
+networks:
+  english_bot:
+    name: english_bot
+    external: true

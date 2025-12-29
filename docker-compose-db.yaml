@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+  db:
+    image: postgres:15
+    container_name: bot-pgsql
+    restart: always
+    networks:
+      - english_bot
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: pFVhbkwyrkf1wrtkGLGwLH4RybPxH25j
+      POSTGRES_DB: english_bot
+      PGDATA: /var/lib/postgresql/data/
+    ports:
+      - 5432:5432
+    volumes:
+      - en_db:/var/lib/postgresql/data/
+
+volumes:
+  en_db:
+
+networks:
+  english_bot:
+    name: english_bot
+    external: true
